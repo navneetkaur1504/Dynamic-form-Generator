@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# Dynamic Form Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Challenge Overview
 
-## Available Scripts
+The **Dynamic Form Generator** is an application that allows users to dynamically generate functional forms based on a JSON schema. The application provides a real-time interface for editing JSON schema and generating a preview of the form. The form updates instantly as the schema changes, offering a seamless experience for form creation.
 
-In the project directory, you can run:
+The form supports various field types, including text inputs, checkboxes, radio buttons, and more. It also features validation, error handling, and a clean, mobile-responsive UI.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Main Interface
+- **Left Side**: JSON Editor
+  - Syntax highlighting for JSON.
+  - Real-time JSON validation with error messages for invalid JSON.
 
-### `npm test`
+- **Right Side**: Generated Form Preview
+  - Real-time updates of the form as the JSON schema is modified.
+  - Mobile-responsive layout.
+  - Error handling and form validation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Form Features
+- Supports various field types defined in the JSON schema.
+- Displays validation messages for required fields.
+- Includes loading states when generating the form.
+- Responsive and consistent design using **Tailwind CSS**.
 
-### `npm run build`
+## Technical Requirements
+- **React 18+**: For building dynamic user interfaces.
+- **TypeScript**: For static typing and improved code safety.
+- **Tailwind CSS**: For responsive, customizable, and modern UI styling.
+- **React Hook Form**: For managing form state and validation.
+- **Playwright**: For end-to-end (E2E) testing.
+- **Jest**: For unit testing.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To set up the project locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone the repository
 
-### `npm run eject`
+Clone the repository to your local machine:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+git clone https://github.com/your-username/dynamic-form-generator.git
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Install dependencies
+cd dynamic-form-generator
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Start the development server
+npm start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Example JSON Schemas
+Below are example of JSON schemas that you can paste into the JSON editor to generate forms dynamically.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+>>>Basic Form
+
+{
+  "formTitle": "Contact Us",
+  "formDescription": "Please provide your contact information.",
+  "fields": [
+    {
+      "id": "name",
+      "label": "Name",
+      "placeholder": "Enter your name",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "required": true
+    },
+    {
+      "id": "message",
+      "label": "Message",
+      "placeholder": "Enter your message",
+      "required": true
+    }
+  ]
+}
+
+
+
+##Local Development Guide
+###1. Modifying the Form Layout
+You can modify the form layout by updating the form fields directly in the JSON schema. The form will automatically update when you make changes.
+
+For example, if you want to add a new field, just add another field object to the fields array in the JSON schema.
+
+###2. Customizing Form Styles
+To adjust the form styling, you can modify the Tailwind CSS classes used in the components. The Tailwind configuration is located in tailwind.config.js. You can add custom colors, spacing, and other styles to better match your design requirements.
+
+###3. Adding Validation Logic
+Form field validation is handled using React Hook Form. You can add custom validation rules in the register method of the form inputs. For example, to make a field required, you can use the following syntax:
